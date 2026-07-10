@@ -1,16 +1,276 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-    <title>Portfolio พิมพ์ชญา</title>
-<body bgcolor=pink>
-<h1>หน้าหลัก</h1>
-<a href="personal.html">ประวัติส่วนตัว</a>
-<a href="personal.html">ประวัติการศึกษา</a>
-<a href="personal.html">ผลงาน</a>
-<a href="personal.html">ช่องทางการติดต่อ</a>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Mali',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#d8b4fe,#c4b5fd,#bfdbfe);
+
+    overflow:hidden;
+
+    color:#444;
+
+}
+
+/* เมนู */
+
+header{
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+header h1{
+
+    color:white;
+
+    margin-bottom:20px;
+
+    text-shadow:2px 2px 8px rgba(0,0,0,.2);
+
+}
+
+nav{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:rgba(255,255,255,.25);
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(8px);
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(255,255,255,.45);
+
+}
+
+/* เนื้อหา */
+
+.container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:75vh;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.25);
+
+    backdrop-filter:blur(10px);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    max-width:500px;
+
+}
+
+.profile{
+
+    width:200px;
+
+    height:200px;
+
+    border-radius:50%;
+
+    border:6px solid white;
+
+    object-fit:cover;
+
+    margin-bottom:20px;
+
+}
+
+.card h2{
+
+    margin-bottom:10px;
+
+    color:#5b21b6;
+
+}
+
+.card p{
+
+    line-height:1.8;
+
+    font-size:18px;
+
+}
+
+/* ใบไม้ */
+
+.leaf{
+
+    position:fixed;
+
+    top:-50px;
+
+    font-size:28px;
+
+    animation:fall linear forwards;
+
+    user-select:none;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-50px) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(360deg);
+
+opacity:.3;
+
+}
+
+}
+
+</style>
+
 </head>
-<p>นางสาวพิมพ์ชญา พิมสิม<br>
-นักเรียนชั้นมัธยมศึกษาปีที่6/2<br>
-โรงเรียนพานทอง<p>
+
+<body>
+
+<header>
+
+<h1>My Portfolio</h1>
+
+<nav>
+
+<a href="index.html">หน้าแรก</a>
+
+<a href="profile.html">ประวัติส่วนตัว</a>
+
+<a href="education.html">ประวัติการศึกษา</a>
+
+<a href="award.html">ผลงาน</a>
+
+<a href="contact.html">ติดต่อ</a>
+
+</nav>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<!-- เปลี่ยนเป็นรูปของตัวเอง -->
+<img src="images/profile.jpg" alt="รูปโปรไฟล์" class="profile">
+
+<h2>ชื่อ - นามสกุล</h2>
+
+<p>
+
+นักศึกษาสาขา..........................<br><br>
+
+ยินดีต้อนรับเข้าสู่เว็บไซต์ Portfolio ของฉัน
+
+เว็บไซต์นี้รวบรวมประวัติส่วนตัว ประวัติการศึกษา ผลงาน
+
+และช่องทางการติดต่อ เพื่อแนะนำตัวเองและแสดงผลงานต่าง ๆ
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const leaves=["🍃","🌿","🍂"];
+
+function createLeaf(){
+
+const leaf=document.createElement("div");
+
+leaf.className="leaf";
+
+leaf.innerHTML=leaves[Math.floor(Math.random()*leaves.length)];
+
+leaf.style.left=Math.random()*100+"vw";
+
+leaf.style.animationDuration=(5+Math.random()*5)+"s";
+
+leaf.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(leaf);
+
+setTimeout(()=>{
+
+leaf.remove();
+
+},10000);
+
+}
+
+setInterval(createLeaf,400);
+
+</script>
+
 </body>
 </html>
